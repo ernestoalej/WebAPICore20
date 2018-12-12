@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace WebAPICore20.Models
 {
-    public class AppDbContext : DbContext
+    //TODO. 33. para agregar las tablas de identity, se debe heredar de IdentityDbContext
+    //public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<AppUser>
     {  // TODO 1 Agregar DbContext
 
         public DbSet<Pais> Paises  { get; set; }

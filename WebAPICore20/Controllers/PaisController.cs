@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +12,14 @@ using WebAPICore20.Models;
 namespace WebAPICore20.Controllers
 {
     [Produces("application/json")]  
-    [Route("api/Pais")]
+    [Route("api/Pais")]    
+
+    //TODO. 35 Impedir el acceso al controlador a todos aquellos usuarios que no estén autorizados.      // Se produce un 401 Unauthorized.
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]  
+
     public class PaisController : Controller
-    {
+    { 
+    
         private readonly AppDbContext context;
 
         // TODO 3. Crear Controlador PaisController

@@ -78,7 +78,7 @@ namespace WebAPICore20.Controllers
 
         }
 
-        //TODO  28 . Crear metodo Delete para eliminar un pais.
+        //TODO. 28  Crear metodo Delete para eliminar un pais.
         [HttpDelete("{EstadoID}")]
         public IActionResult Delete([FromBody] Estado Estado, int EstadoID)
         {
